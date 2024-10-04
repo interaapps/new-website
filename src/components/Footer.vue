@@ -9,8 +9,8 @@ import logo from '../assets/logo.svg'
       </RouterLink>
 
       <div class="flex gap-2">
-        <a href="#" class="text-white no-underline">Impressum</a>
-        <a href="#" class="text-white no-underline">Privacy</a>
+        <router-link :to="{name: 'imprint'}" class="text-white no-underline">Impressum</router-link>
+        <router-link :to="{name: 'privacy'}" class="text-white no-underline">Privacy</router-link>
       </div>
     </div>
   </div>
