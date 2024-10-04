@@ -1,0 +1,67 @@
+@import '../../node_modules/primeflex/primeflex.css';
+@import url(https://fonts.intera.dev/_/plus+jakarta+sans);
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #000;
+}
+#app {
+  color: #FFF;
+  height: 100%;
+}
+
+.inner-max-width {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1200px) {
+    border: 1px solid #8E8E8E;
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+}
+
+.border-all {
+  border: 1px solid #8E8E8E;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #8E8E8E;
+}
+
+.border-right {
+  border-right: 1px solid #8E8E8E;
+}
+.border-top {
+  border-top: 1px solid #8E8E8E;
+}
+.border-left {
+  border-left: 1px solid #8E8E8E;
+}
+
+.three-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1px;
+
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mobile-one {
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
