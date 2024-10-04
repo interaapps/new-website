@@ -31,7 +31,6 @@ function checkUser(){
     const interaAppsExternalUserAccess = typeof window.interaAppsExternalUserAccess !== 'undefined' ? window.interaAppsExternalUserAccess : null
     if (interaAppsExternalUserAccess === null) return;
     interaAppsExternalUserAccess.setOnLoad(() => {
-        console.log('loadde')
         if (interaAppsExternalUserAccess.loggedIn) {
             setUser(interaAppsExternalUserAccess.user)
         }
