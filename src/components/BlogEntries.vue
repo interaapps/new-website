@@ -6,12 +6,7 @@ import codeboxScreenshot from '../assets/img/codebox-1.png'
 
 import {computed, ref} from "vue";
 
-const entries = ref([
-  {
-    name: 'JDOM',
-    subtitle: 'Reactive Frontend Framework',
-    link: 'https://github.com/interaapps/jdom'
-  },
+const entries = ref<any[]>([
 ])
 
 fetch('https://quotysco.eu/api/v1/blogs/InteraApps/posts?limit=3&page=1')

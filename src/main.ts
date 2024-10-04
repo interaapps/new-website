@@ -21,17 +21,23 @@ app.mount('#app')
 
 const {setUser} = useUserStore()
 
+declare global {
+    interface Window {
+        interaAppsExternalUserAccess: any;
+    }
+}
+
 function checkUser(){
-    console.log('checking', window.interaAppsExternalUserAccess)
-    window.interaAppsExternalUserAccess.setOnLoad(() => {
+    const interaAppsExternalUserAccess = typeof window.interaAppsExternalUserAccess !== 'undefined' ? window.interaAppsExternalUserAccess : null
+    if (interaAppsExternalUserAccess === null) return;
+    interaAppsExternalUserAccess.setOnLoad(() => {
         console.log('loadde')
-        if (window.interaAppsExternalUserAccess.loggedIn) {
-            console.log(window.interaAppsExternalUserAccess.user)
-            setUser(window.interaAppsExternalUserAccess.user)
+        if (interaAppsExternalUserAccess.loggedIn) {
+            setUser(interaAppsExternalUserAccess.user)
         }
     })
     setTimeout(()=>{
-        window.interaAppsExternalUserAccess.run()
+        interaAppsExternalUserAccess.run()
     }, 250)
 }
 checkUser()
