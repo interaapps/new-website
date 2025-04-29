@@ -9,7 +9,7 @@ import {computed, ref} from "vue";
 const apps = [
   {
     name: 'Pastefy',
-    description: `Pastefy is a tool you created that allows users to store and share text, code snippets, and other content online. It serves as a user-friendly, minimalistic pastebin alternative where users can create "pastes" (blocks of text or code) and share them easily through unique URLs. Pastefy typically emphasizes privacy, offering features like encryption to ensure that shared pastes are secure.`,
+    description: `Pastefy is a tool that allows users to store and share text, code snippets, and other content online. It serves as a user-friendly, minimalistic pastebin alternative where users can create "pastes" (blocks of text or code) and share them easily through unique URLs. Pastefy typically emphasizes privacy, offering features like encryption to ensure that shared pastes are secure.`,
     screenshot: pastefyScreenshot,
     links: [
       {
@@ -72,7 +72,7 @@ const apps = [
   },
   {
     name: 'CodeBox',
-    description: `Pastefy Codebox is a Web-Playground for creating little examples for libraries like JDOM, React, Vue, React or many more.`,
+    description: `Pastefy Codebox is a Web-Playground for creating little examples for libraries like JDOM, Vue, React or many more.`,
     screenshot: codeboxScreenshot,
     links: [
       {
