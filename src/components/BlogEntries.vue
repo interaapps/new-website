@@ -37,8 +37,8 @@ fetch('https://quotysco.eu/api/v1/blogs/InteraApps/posts?limit=3&page=1')
           <span class="block text-md font-bold">{{ entry.title }}</span>
           <span class="block text-sm md:text-right opacity-50">{{ entry.created_at }}</span>
 
-          <div class="absolute left-0" style="width: calc(1px + 100%); height: 1px; background: #8E8E8E; bottom: -1px" />
-          <div class="h-full absolute top-0" style="width: 1px; background: #8E8E8E; right: -1px" />
+          <div class="absolute left-0" style="width: calc(1px + 100%); height: 1px; background: var(--border-color); bottom: -1px" />
+          <div class="h-full absolute top-0" style="width: 1px; background: var(--border-color); right: -1px" />
         </a>
 
       </div>
@@ -65,7 +65,7 @@ fetch('https://quotysco.eu/api/v1/blogs/InteraApps/posts?limit=3&page=1')
   -webkit-text-stroke: 0.6px #FFF;
 
 
-  border-right: 1px solid #8E8E8E;
+  border-right: 1px solid var(--border-color);
 
 
   span {

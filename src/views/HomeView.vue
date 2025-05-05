@@ -53,7 +53,7 @@ import Design from "@/components/Design.vue";
 
 <style lang="scss" scoped>
 .box-col {
-  border-bottom: 1px solid #2E2E2E;
+  border-bottom: 1px solid var(--border-color);
   .box-row {
 
     width: 5%;

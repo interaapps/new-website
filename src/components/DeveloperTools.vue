@@ -59,8 +59,8 @@ const tools = [
           <span class="block text-2xl mb-1 font-bold">{{ tool.name }}</span>
           <span class="block">{{ tool.subtitle }}</span>
 
-          <div class="absolute left-0" style="width: calc(1px + 100%); height: 1px; background: #8E8E8E; bottom: -1px" />
-          <div class="h-full absolute top-0" style="width: 1px; background: #8E8E8E; right: -1px" />
+          <div class="absolute left-0" style="width: calc(1px + 100%); height: 1px; background: var(--border-color); bottom: -1px" />
+          <div class="h-full absolute top-0" style="width: 1px; background: var(--border-color); right: -1px" />
         </a>
 
       </div>
@@ -87,7 +87,7 @@ const tools = [
   -webkit-text-stroke: 0.6px #FFF;
 
 
-  border-right: 1px solid #8E8E8E;
+  border-right: 1px solid var(--border-color);
 
 
   span {

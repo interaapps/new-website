@@ -108,7 +108,7 @@ const current = computed(() => apps[selected.value])
             {{ app.name }}
           </span>
 
-          <div class="block absolute" style="top: -1px; left: 0; height: 1px; width: calc(100% + 1px); background: #8E8E8E" />
+          <div class="block absolute" style="top: -1px; left: 0; height: 1px; width: calc(100% + 1px); background: var(--border-color)" />
         </button>
       </div>
     </div>
@@ -192,7 +192,7 @@ const current = computed(() => apps[selected.value])
   -webkit-text-stroke: 0.6px #FFF;
 
 
-  border-right: 1px solid #8E8E8E;
+  border-right: 1px solid var(--border-color);
 
 
   span {

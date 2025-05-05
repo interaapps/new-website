@@ -11,7 +11,7 @@ import flagIcons from '../assets/img/flag-icons.png'
     </div>
     <div class="border-bottom">
       <div class="inner-max-width md:flex w-full">
-        <a href="https://github.com/interaapps/flag-icons" target="_blank" class="h-10rem text-white no-underline flex justify-content-between w-full border-right border-bottom md:border-bottom-none">
+        <a href="https://flags.intera.dev" target="_blank" class="h-10rem text-white no-underline flex justify-content-between w-full border-right border-bottom md:border-bottom-none">
           <div class="p-3">
             <span class="text-xl block mb-2 font-bold">Flag Icons</span>
             <span>Simple and beautiful flags</span>
