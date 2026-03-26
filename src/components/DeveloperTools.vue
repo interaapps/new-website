@@ -8,9 +8,9 @@ import {computed, ref} from "vue";
 
 const tools = [
   {
-    name: 'JDOM',
+    name: 'Puls',
     subtitle: 'Reactive Frontend Framework',
-    link: 'https://github.com/interaapps/jdom'
+    link: 'https://github.com/interaapps/puls'
   },
   {
     name: 'ULOLE',

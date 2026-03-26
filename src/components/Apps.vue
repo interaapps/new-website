@@ -3,6 +3,7 @@ import pastefyScreenshot from '../assets/img/pastefy-1.png'
 import punyshortScreenshot from '../assets/img/punyshort-1.png'
 import quotyscoScreenshot from '../assets/img/quotysco-1.png'
 import codeboxScreenshot from '../assets/img/codebox-1.png'
+import starQueryScreenshot from '../assets/img/starquery-1.png'
 
 import {computed, ref} from "vue";
 
@@ -20,12 +21,34 @@ const apps = [
       {
         icon: 'script',
         text: 'API-Docs',
-        url: 'https://intera.dev/docs/pastefy'
+        url: 'https://docs.pastefy.app'
       },
       {
         icon: 'brand-github',
         text: 'Source Code',
         url: 'https://github.com/interaapps/pastefy'
+      }
+    ]
+  },{
+    name: 'StarQuery',
+    description: `StarQuery is a desktop and web database/resource browser with support for SQL datasources, Elasticsearch, and S3-compatible object storage.`,
+    screenshot: starQueryScreenshot,
+    color: '#D63472',
+    links: [
+      {
+        icon: 'link',
+        text: 'Website',
+        url: 'https://starquery.app/'
+      },
+      {
+        icon: 'script',
+        text: 'Self-Hosting Guide',
+        url: 'https://starquery.app/deploy/hosted'
+      },
+      {
+        icon: 'brand-github',
+        text: 'Source Code',
+        url: 'https://github.com/interaapps/starquery'
       }
     ]
   },
