@@ -14,6 +14,7 @@
 html, body {
   height: 100%;
   background: #000;
+  scroll-behavior: smooth;
 }
 #app {
   color: #FFF;
@@ -69,4 +70,15 @@ html, body {
   @media screen and (max-width: 720px) {
     grid-template-columns: 1fr;
   }
+}
+
+.js-reveal,
+.js-hero-reveal,
+.js-app-animate,
+.js-app-visual,
+.js-app-glow,
+.js-blog-card,
+.hero-grid-cell,
+.hero-orb {
+  will-change: transform, opacity;
 }

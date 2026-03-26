@@ -5,7 +5,9 @@ import quotyscoScreenshot from '../assets/img/quotysco-1.png'
 import codeboxScreenshot from '../assets/img/codebox-1.png'
 import starQueryScreenshot from '../assets/img/starquery-1.png'
 
-import {computed, ref} from "vue";
+import { computed, nextTick, onBeforeUnmount, ref, watch } from "vue";
+import { gsap } from "@/lib/gsap";
+import { useScrollReveal } from "@/composables/useScrollReveal";
 
 const apps = [
   {
@@ -115,10 +117,90 @@ const apps = [
 const selected = ref(0)
 
 const current = computed(() => apps[selected.value])
+const sectionRef = ref<HTMLElement | null>(null)
+const stageRef = ref<HTMLElement | null>(null)
+
+useScrollReveal(sectionRef, { selector: '.js-reveal' })
+
+let animationContext: gsap.Context | null = null
+
+const animateCurrent = async () => {
+  await nextTick()
+
+  const stage = stageRef.value
+  if (!stage) {
+    return
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.set(stage.querySelectorAll('.js-app-animate'), { clearProps: 'all', autoAlpha: 1 })
+    return
+  }
+
+  animationContext?.revert()
+  animationContext = gsap.context(() => {
+    const parts = gsap.utils.toArray<HTMLElement>('.js-app-animate')
+
+    gsap.fromTo(
+      parts,
+      {
+        autoAlpha: 0,
+        y: 24,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.9,
+        stagger: 0.1,
+        ease: 'power3.out',
+      },
+    )
+
+    gsap.fromTo(
+      '.js-app-visual',
+      {
+        autoAlpha: 0,
+        x: 36,
+        rotate: -2,
+        scale: 0.96,
+      },
+      {
+        autoAlpha: 1,
+        x: 0,
+        rotate: 0,
+        scale: 1,
+        duration: 1.1,
+        ease: 'power3.out',
+      },
+    )
+
+    gsap.fromTo(
+      '.js-app-glow',
+      {
+        autoAlpha: 0.2,
+        scale: 0.86,
+      },
+      {
+        autoAlpha: 0.65,
+        scale: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+      },
+    )
+  }, stage)
+}
+
+watch(current, () => {
+  animateCurrent()
+}, { immediate: true })
+
+onBeforeUnmount(() => {
+  animationContext?.revert()
+})
 
 </script>
 <template>
-  <div>
+  <div ref="sectionRef" style="overflow: clip">
     <div class="border-bottom">
       <div class="inner-max-width">
         <button
@@ -137,15 +219,15 @@ const current = computed(() => apps[selected.value])
     </div>
 
     <div class="border-bottom">
-      <div class="inner-max-width">
-        <div class="md:flex gap-5 relative overflow-hidden w-full" style="min-height: 400px">
+      <div ref="stageRef" class="inner-max-width">
+        <div class="app-stage md:flex gap-5 relative overflow-hidden w-full js-reveal" style="min-height: 400px">
           <div class="p-5 flex flex-column gap-3 justify-content-between relative z-2" style="flex: 1">
             <div>
-              <h3 class="text-4xl mb-2">{{ current.name }}</h3>
-              <p class="text-xl">{{current.description}}</p>
+              <h3 class="text-4xl mb-2 js-app-animate">{{ current.name }}</h3>
+              <p class="text-xl js-app-animate">{{current.description}}</p>
             </div>
 
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 js-app-animate">
               <template v-for="link of current.links">
                 <a
                   :href="link.url"
@@ -160,9 +242,9 @@ const current = computed(() => apps[selected.value])
             </div>
           </div>
 
-          <div class="ml-auto md:ml-0" style="width: 500px; max-width: 100%; height: 100%" v-if="current.screenshot">
+          <div class="ml-auto md:ml-0 " style="width: 500px; max-width: 100%; height: 100%" v-if="current.screenshot">
 
-            <svg class="absolute" style="right: -100px; bottom: -50px; width: 700px; height: 500px" width="407" height="281" viewBox="0 0 407 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="absolute " style="right: -100px; bottom: -50px; width: 700px; height: 500px" width="407" height="281" viewBox="0 0 407 281" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="213.83" cy="181.5" rx="227.259" ry="181.5" fill="url(#paint0_radial_244_110)"/>
               <defs>
                 <radialGradient id="paint0_radial_244_110" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(213.83 181.5) rotate(90) scale(181.5 227.259)">
@@ -200,7 +282,6 @@ const current = computed(() => apps[selected.value])
 
 <style lang="scss" scoped>
 @import '../../node_modules/primeflex/primeflex.css';
-
 .button {
   background: none;
   border: none;
@@ -209,14 +290,9 @@ const current = computed(() => apps[selected.value])
   font-weight: 600;
   transition: 0.2s;
   outline: none;
-
-
   text-stroke: 0.6px #FFF;
   -webkit-text-stroke: 0.6px #FFF;
-
-
   border-right: 1px solid var(--border-color);
-
 
   span {
     display: block;
@@ -224,7 +300,6 @@ const current = computed(() => apps[selected.value])
   }
 
   &:last-child {
-   // border-right: none;
   }
 
   &.selected {
@@ -250,5 +325,3 @@ const current = computed(() => apps[selected.value])
   }
 }
 </style>
-<script setup lang="ts">
-</script>

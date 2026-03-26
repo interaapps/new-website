@@ -1,5 +1,5 @@
 import './assets/main.scss'
-import '@tabler/icons-webfont/dist/tabler-icons-outline.css'
+import '@tabler/icons-webfont/dist/tabler-icons.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
