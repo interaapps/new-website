@@ -4,6 +4,7 @@ import punyshortScreenshot from '../assets/img/punyshort-1.png'
 import quotyscoScreenshot from '../assets/img/quotysco-1.png'
 import codeboxScreenshot from '../assets/img/codebox-1.png'
 import starQueryScreenshot from '../assets/img/starquery-1.png'
+import numscratchScreenshot from '../assets/img/numscratch-1.png'
 
 import { computed, nextTick, onBeforeUnmount, ref, watch } from "vue";
 import { gsap } from "@/lib/gsap";
@@ -31,7 +32,8 @@ const apps = [
         url: 'https://github.com/interaapps/pastefy'
       }
     ]
-  },{
+  },
+  {
     name: 'StarQuery',
     description: `StarQuery is a desktop and web database/resource browser with support for SQL datasources, Elasticsearch, and S3-compatible object storage.`,
     screenshot: starQueryScreenshot,
@@ -51,6 +53,24 @@ const apps = [
         icon: 'brand-github',
         text: 'Source Code',
         url: 'https://github.com/interaapps/starquery'
+      }
+    ]
+  },
+  {
+    name: 'Numscratch',
+    description: `Numscratch is a text calculator. Expressions are written on the left and evaluated results appear immediately on the right. You can use it offline or sync it with your account to access your calculations from any device.`,
+    screenshot: numscratchScreenshot,
+    color: '#159B32',
+    links: [
+      {
+        icon: 'link',
+        text: 'Website',
+        url: 'https://numscratch.app/'
+      },
+      {
+        icon: 'brand-github',
+        text: 'Source Code',
+        url: 'https://github.com/numscratch/starquery'
       }
     ]
   },
